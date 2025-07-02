@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Zakładki z obrazkami</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .tabs {
+      display: flex;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background: #ccc;
+      border: 1px solid #999;
+      margin-right: 5px;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .tab.active {
+      background: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    .tab-content {
+      display: none;
+      border: 1px solid #999;
+      padding: 10px;
+      border-radius: 0 5px 5px 5px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab(0)">Zakładka 1</div>
+    <div class="tab" onclick="showTab(1)">Zakładka 2</div>
+    <div class="tab" onclick="showTab(2)">Zakładka 3</div>
+  </div>
+
+  <div class="tab-content active">
+    <img src="https://via.placeholder.com/600x300?text=Obrazek+1" alt="Obrazek 1">
+  </div>
+  <div class="tab-content">
+    <img src="https://via.placeholder.com/600x300?text=Obrazek+2" alt="Obrazek 2">
+  </div>
+  <div class="tab-content">
+    <img src="https://via.placeholder.com/600x300?text=Obrazek+3" alt="Obrazek 3">
+  </div>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        contents[i].classList.toggle('active', i === index);
+      });
+    }
+  </script>
+
+</body>
+</html>
